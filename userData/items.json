@@ -1,0 +1,8 @@
+{
+    "groceries" : [
+        {
+            "name" : "Apple",
+            "imageURI" : "./userData/itemImages/apple.png"
+        }
+    ]
+}
