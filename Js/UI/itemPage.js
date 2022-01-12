@@ -1,22 +1,29 @@
-import { StyleSheet, Text, SafeAreaView, Image, TextInput, View, ScrollView, Pressable, Alert } from 'react-native';
+import { StyleSheet, Text, Dimensions, Image, TextInput, View, ScrollView, Pressable, Alert } from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
+import { borderBottomColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
+
 const userData = require('../../userData/items.json');
+const populate = require('../Logic/populateContainers.js').ingredientsView;
+const screenHeight = Dimensions.get("screen").height;
+const IngredientsView = populate(ItemDisplay);
+const dispayItemHeight = screenHeight*0.0999;
+const bottomBarItemsHeight = screenHeight*0.07;
+
 export function UserIngredients(){
   return (
-  <SafeAreaView style={styles.container}>
+  <View style={styles.container}>
         <TopBar/>
         <ScrollView style={styles.display}>
-          <ItemDisplay uri = {require('../../images/apple.png')}/>
-          <ItemDisplay uri = {require('../../images/apple.png')}/>
-          <ItemDisplay uri = {require('../../images/apple.png')}/>
+          <IngredientsView/>
         </ScrollView>
         <BottomBar/>
-  </SafeAreaView>);
+  </View>);
 }
+
 function TopBar(){
     return(
-      <View style={styles.bar}>
-        <Entypo name='menu'size={45} color='#0C0F07' style={{flex: 1}}/>
+      <View style = {{alignItems:'flex-end', flex:0.07,flexDirection:'row', justifyContent: 'space-evenly', width :'100%', paddingBottom: '2%'}}>
+        <Entypo name='menu' size={40} color='#0C0F07' style={{}}/>
         <TextInput style={styles.input}/>
       </View>
     );
@@ -25,9 +32,10 @@ function TopBar(){
 function BottomBar(){
     return(
         <View style = {styles.bar}>
-
         <Pressable>
-            <Entypo name = "add-to-list" size={40}
+            <Entypo 
+            name = "add-to-list"
+            size={bottomBarItemsHeight}
             onPress={addItem}
             />
         </Pressable>
@@ -38,91 +46,97 @@ function ItemDisplay(props){
     return(
       
         <View style={styles.items}>
-          <Image source={props.uri} style={styles.itemImage}/>
+          <Image source={require('../../images/fruit.png')} style={styles.itemImage}/>
           <View style={styles.itemInfo}>
-            <Text style={styles.itemTitle}> {userData.groceries[0].name}</Text>
-            <View>
-                <Text>
-                    Purchased on YYYY/MM/DD {'\n'}
-                    Reminder to Eat Before YYYY/MM/DD
-                </Text>
+            <View style={{ borderBottomColor: 'darkolivegreen' ,borderBottomWidth: 1, marginBottom: 3, paddingBottom: 2}}>
+              <Text style={styles.itemTitle}>{props.itemName}</Text>
+            </View>
+            <View style={styles.itemDetails}>
+              <Text style={{flex: 0.5}}>PD: {props.dateOfPurchase}</Text>
+              <Text style={{flex: 0.5}}>QT: {props.quantity}</Text>
+            </View>
+            <View style={styles.itemDetails}>
+              <Text style={{flex: 0.5}}>Spoils: {props.bestBefore}</Text>
+              <Text style={{flex: 0.5}}>Type: {props.type}</Text>
             </View>
           </View>
         </View>
     );
   }
+
   const styles = StyleSheet.create({
     container: {
-      margin: 0,
-      padding: 8,
-      width: '100%',
-      height: '101%',
+
+      paddingTop: '10%',
+      flex : 1,
       backgroundColor: 'darkolivegreen',
       alignItems: 'center',
+      
     },
     display:{
+
+      flex: 1,
       flexDirection:'column',
       width: '100%',
-      flex: 1,
       backgroundColor: 'cornsilk',
+
     },
     bar:{
-      alignItems: 'center',
-      justifyContent: 'center',
+      justifyContent: 'space-evenly',
+      alignContent: 'center',
+      flex: .1,
       flexDirection:'row',
-      padding: 3,
       backgroundColor: 'darkolivegreen',
       width: '100%',
+      alignItems: 'flex-start',
+      paddingBottom: '2.5%'
+
     },
     input: {
+      flex: .95,
       backgroundColor: 'cornsilk',
       borderColor: '#777',
-      width: '85%',
-      margin: 5,
-      padding: 5,
-      height: 35,
-      borderRadius: 10
+      borderRadius: 10,
+      height: 40,
     },
     items:{
+      borderEndColor: '#0C0F07',
+      borderEndWidth: StyleSheet.hairlineWidth,
       borderBottomColor: '#0C0F07',
-      borderBottomWidth: 1,
+      borderBottomWidth: StyleSheet.hairlineWidth,
       backgroundColor: '#C6D8A6',
-      flex: 1,
-      flexWrap:'wrap',
       flexDirection: 'row',
-      alignItems:'center',
-      padding: 10,
+      alignItems:'flex-start',
+      height: dispayItemHeight
     },
-    itemImage:{
+  
+    itemImage: {
+
       resizeMode: 'contain',
-      height : 90,
-      width: 60,
-      flex: 1
-    },
-    itemInfo: {
+      flex: 0.3,
       height: '100%',
-      padding: 5,
-      flex: 4,
+    },
+
+    itemInfo: {
+      flex: 0.65,
       flexDirection: 'column',
       
     },
-    itemTitle:{
-      fontSize: 20,
+
+    itemTitle: {
+      fontSize: 25,
       fontWeight: '900',
       fontFamily: 'Farah',
-      textAlignVertical: 'top',
-      textAlign: 'center'
+    },
+    itemDetails :{
+      flex:2,
+      flexDirection: 'row',
+      flexWrap: 'wrap', 
+      width:'120%'
     }
   
   });
+  
   function addItem(){
-    Alert.alert('YOU WANT TO ADD ITEM YES?');
+    Alert.alert('AYO THIS FOO TRYNNA ADD MORE FOOD FATASS');
   }
-  const a ={
-    "groceries" : [
-        {
-            "name" : "Apple",
-            "uri" : "../userData/itemImages/apple.png"
-        }
-    ]
-}

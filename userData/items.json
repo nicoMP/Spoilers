@@ -1,7 +1,88 @@
 {
     "groceries" : [
         {
-            "name" : "Apple"
+            "name" : "Orange",
+            "type" : "fruit",
+            "dateOfPurchase" : "2022/01/01",
+            "bestBefore" : "2022/01/09",
+            "quantity" : {"value" : 4, "unit": "item(s)"}
+        },
+        {
+            "name" : "Grape",
+            "type" : "fruit",
+            "dateOfPurchase" : "2022/01/06",
+            "bestBefore" : "2022/01/05",
+            "quantity" : {"value" : 200, "unit": "g(s)"}
+        },
+        {
+            "name" : "Pear",
+            "type" : "fruit",
+            "dateOfPurchase" : "2022/01/01",
+            "bestBefore" : "2022/01/05",
+            "quantity" : {"value" : 3, "unit": "item(s)"}
+        },
+        {
+            "name" : "Apple",
+            "type" : "fruit",
+            "dateOfPurchase" : "2022/01/01",
+            "bestBefore" : "2022/01/13",
+            "quantity" : {"value" : 2, "unit": "item(s)"}
+        },
+        {
+            "name" : "Dragonfruit",
+            "type" : "fruit",
+            "dateOfPurchase" : "2022/01/06",
+            "bestBefore" : "2022/01/15",
+            "quantity" : {"value" : 3, "unit": "item(s)"}
+        },
+        {
+            "name" : "Kiwi",
+            "type" : "fruit",
+            "dateOfPurchase" : "2022/01/06",
+            "bestBefore" : "2022/01/015",
+            "quantity" : {"value" : 4, "unit": "item(s)"}
+        },
+        {
+            "name" : "Pinneapple",
+            "type" : "fruit",
+            "dateOfPurchase" : "2022/01/06",
+            "bestBefore" : "2022/01/15",
+            "quantity" : {"value" : 500, "unit": "g(s)"}
+        },
+        {
+            "name" : "Pear",
+            "type" : "fruit",
+            "dateOfPurchase" : "2022/01/01",
+            "bestBefore" : "2022/01/05",
+            "quantity" : {"value" : 3, "unit": "item(s)"}
+        },
+        {
+            "name" : "Apple",
+            "type" : "fruit",
+            "dateOfPurchase" : "2022/01/01",
+            "bestBefore" : "2022/01/13",
+            "quantity" : {"value" : 7, "unit": "item(s)"}
+        },
+        {
+            "name" : "Dragonfruit",
+            "type" : "fruit",
+            "dateOfPurchase" : "2022/01/06",
+            "bestBefore" : "2022/01/01/15",
+            "quantity" : {"value" : 1, "unit": "item(s)"}
+        },
+        {
+            "name" : "Kiwi",
+            "type" : "fruit",
+            "dateOfPurchase" : "2022/01/06",
+            "bestBefore" : "2022/01/015",
+            "quantity" : {"value" : 2, "unit": "item(s)"}
+        },
+        {
+            "name" : "Pinneapple",
+            "type" : "fruit",
+            "dateOfPurchase" : "2022/01/06",
+            "bestBefore" : "2022/01/15",
+            "quantity" : {"value" : 3, "unit": "item(s)"}
         }
     ]
 }
